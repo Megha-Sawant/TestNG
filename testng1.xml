@@ -1,0 +1,35 @@
+<suite name="Loan Department" parallel="tests" thread-count="6">
+<!--    <groups>-->
+<!--        <run>-->
+<!--            <include name="Loan"/>-->
+<!--        </run>-->
+<!--    </groups>-->
+    <listeners>
+        <listener class-name="testNG.ListenerDemo"/>
+    </listeners>
+    <test name="Login to loan">
+        <parameter name="URL" value="personalloan.com"/>
+        <classes>
+            <class name="testNG.Demo"/>
+        </classes>
+    </test>
+    <test name="loanType">
+        <parameter name="URL" value="ApplyLoan.com"/>
+        <classes>
+            <class name="testNG.LoanDepartment">
+                <methods>
+                    <exclude name="HomeLoan"/>
+                </methods>
+            </class>
+            <class name="testNG.APITest">
+                <methods>
+                    <include name="API.*"/>
+                </methods>
+
+            </class>
+        </classes>
+
+
+    </test>
+
+</suite>
